@@ -1,192 +1,35 @@
-# Welcome to **im-select** 👋
+# Im-Select-Imm
 
+## Introduce 
+Orgin im-select could only change IME 
+This version allow you change IME Mode in second parameter
+The pre-build exe is under the `thisdir/out/`
 
-![image](https://user-images.githubusercontent.com/13344830/232276894-f84ee7d9-091e-40dd-8ad4-0b8840456a58.png)
+## Usage 
 
-
-
-<div align="center">
-Switch your input method in shell. This project is a basic support for VSCodeVim. It provides the command line program for VSCodeVim's autoSwitchIM function.   
-
-&nbsp;
-
-![](https://img.shields.io/badge/Author-daipeihust-blue)
-![GitHub repo size](https://img.shields.io/github/repo-size/daipeihust/im-select)
-![GitHub repo file count](https://img.shields.io/github/directory-file-count/daipeihust/im-select)
-![GitHub release (by tag)](https://img.shields.io/github/downloads/daipeihust/im-select/1.0.1/total)
-![GitHub issues](https://img.shields.io/github/issues/daipeihust/im-select)
-![GitHub](https://img.shields.io/github/license/daipeihust/im-select)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/daipeihust/im-select)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/daipeihust/im-select)
-![GitHub contributors](https://img.shields.io/github/contributors/daipeihust/im-select)
-![GitHub last commit](https://img.shields.io/github/last-commit/daipeihust/im-select)
-![GitHub Discussions](https://img.shields.io/github/discussions/daipeihust/im-select)
-![GitHub Repo stars](https://img.shields.io/github/stars/daipeihust/im-select?style=social)
-
-</div>
-
-&nbsp;
-
-[English](./README.md) | [简体中文](./README_CN.md)
-
-
-## Prerequisites
-
-- using [VSCodeVim](https://github.com/VSCodeVim/Vim)
-- have a Mac/Windows/Linux device
-- download [git-bash](https://gitforwindows.org/)(if you on windows)
-- know how to use [shell](https://zh.wikipedia.org/wiki/Unix_shell)
-
-## Install
-
-### macOS
-
-#### Homebrew
+## Get Current IME key
 
 ```shell
-brew install im-select
+/path/to/im-select-imm.exe
+Out: [current IME] [current Mode]
 ```
 
-Or you can run following command in your console:
+## Switch IME
 
 ```shell
-curl -Ls https://raw.githubusercontent.com/daipeihust/im-select/master/install_mac.sh | sh
+/path/to/im-select-imm.exe [target IME]  
+Or
+/path/to/im-select-imm.exe [target IME]  [target IME Mode]
 ```
 
-The im-select program will be downloaded to your `/usr/local/bin/` path.
-
-#### Apple Silicon support
-
-Click [here](https://github.com/daipeihust/im-select/blob/8080ad18f20218d1b6b5ef81d26cc5452d56b165/im-select-mac/out/apple/im-select) to download specific im-select program
-
-### windows
-
-Download the [im-select.exe](https://github.com/daipeihust/im-select/raw/master/win/out/x86/im-select.exe), and move it to the proper path.(If you need the 64 bit version, you can download [this one](https://github.com/daipeihust/im-select/raw/master/im-select-win/out/x64/im-select.exe).)
-
-Also see  [select-im-imm](./win-imm/README.md) 
-Which provide ability for switch IME Mode.
-
-### linux
-
-You don't have to install this for linux. linux have tools to switch input methods
-
-## Usage
-
-## macOS
-If your PATH contains `/usr/local/bin`, you can just use `im-select` instead of `/usr/local/bin/im-select`
-### To get current input method key
-```shell
-/usr/local/bin/im-select
+## For Microsoft Chinese IME
 ```
-### To switch current input method
-```shell
-/usr/local/bin/im-select imkey
+For  Microsoft Old Chinese IME(Win10 and Previous) :
+    0: English
+    1: Chinese
+For  Microsoft New Chinese IME(Win11) :
+    0: English / Half Shape
+    1: Chinese / Half Shape
+    1024: English / Full Shape 
+    1025: Chinese / Full Shape
 ```
-For example `/usr/local/bin/im-select com.apple.keylayout.US`
-
-## linux
-
-### ibus
-
-[@mengbo](https://github.com/mengbo) provided this configuration for ibus
-
-```
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "xkb:us::eng",
-"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/ibus engine",
-"vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/ibus engine {im}"
-```
-
-### xkb-switch
-
-[@VEL4EG](https://github.com/VEL4EG) provided this configuration for xkb-switch
-
-```
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "us",
-"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/xkb-switch",
-"vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/xkb-switch -s {im}"
-```
-
-### fcitx
-
-[@yunhao94](https://github.com/yunhao94) provided this configuration for fcitx
-
-```
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "1",
-"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx-remote",
-"vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx-remote -t {im}",
-```
-
-### gdbus
-
-[@d-r-q](https://github.com/d-r-q) provide this configuration for gdbus
-
-Put `gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval "imports.ui.status.keyboard.getInputSourceManager().currentSource.index" | awk -F'[^0-9]*' '{print $2}'` into get-im.sh.
-
-Put `gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval "imports.ui.status.keyboard.getInputSourceManager().inputSources[$1].activate()"` into set-im.sh.
-
-```
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "0",
-"vim.autoSwitchInputMethod.obtainIMCmd": "<path to get-im.sh>",
-"vim.autoSwitchInputMethod.switchIMCmd": "<path to set-im.sh> {im}",
-```
-
-### qdbus (KDE)
-
-[@igorechek06](https://igorek.dev) provided this configuration for qdbus
-
-```
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "0",
-"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/qdbus org.kde.keyboard /Layouts getLayout",
-"vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/qdbus org.kde.keyboard /Layouts setLayout {im}",
-```
-
-## windows
-The im-select.exe is command line program, but it can't work in cmd or powershell. It's microsoft's bug, the keyboard API doesn't support in cmd and powershell. I recommend you git-bash.
-
-> Note: The git-bash is not required. It's only used to get current input method key, which needed in VSCodeVim's configuration.
-
-## Run tests
-
-### To get current keyboard locale
-
-```shell
-/path/to/im-select.exe
-```
-
-### To switch current keyboard locale
-
-```shell
-/path/to/im-select.exe locale
-```
-
-> Note: The path in windows is like: C:\Users\path\to\file
-
-## Author
-
-- [daipeihust](github.com/daipeihust)
-- [liwanwhu](github.com/liwanwhu)
-
-## 🤝 Contributing
-
-If you find some issues, welcome to create pull request!
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-Buy me a coffee, if you like it! If you have any problems, you can contact me via email!
-
-<div align="left">
-    <img src="contact_me.jpeg" height="300">
-    <img src="support_me.jpeg" height="300">
-</div>
-
-## 📝 License
-
-This project is licensed under the terms of the MIT license.
-

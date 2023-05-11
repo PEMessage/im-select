@@ -1,37 +1,8 @@
-################## cpp ###################
+# Xmake cache
+.xmake/
+build/
 
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-*.user
-
-
-################## objective-c  ###################
-*xcuserdata
+# MacOS Cache
 .DS_Store
+
 

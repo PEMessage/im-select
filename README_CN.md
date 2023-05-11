@@ -24,6 +24,10 @@ Out: [当前输入法] [输入法的当前模式]
 Or
 /path/to/im-select.exe [目标输入法]  [目标输入法的目标模式]
 ```
+## 已测试熟人
+
+1. 新旧微软拼音
+2. 新微软日语输入法
 
 ### 对于微软输入法
 
@@ -34,6 +38,6 @@ For  Microsoft Old Chinese IME(Win10 and Previous) :
 For  Microsoft New Chinese IME(Win11) :
     0: English / Half Shape
     1: Chinese / Half Shape
-    1024: English / Full Shape 
+    1024: English / Full Shape (虽然存在此模式，但实际仍然为半角)
     1025: Chinese / Full Shape
 ```

@@ -26,6 +26,7 @@ Or
 ```
 
 ### 对于微软输入法
+
 ```
 For  Microsoft Old Chinese IME(Win10 and Previous) :
     0: English

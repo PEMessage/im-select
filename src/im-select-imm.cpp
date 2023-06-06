@@ -1,6 +1,7 @@
 #include "stdafx.h"
-#include <cstdlib>
 
+#include <cstdlib>
+#include <cstring>
 #include <Windows.h>
 #include <immdev.h>
 
@@ -55,11 +56,30 @@ int main(int argc, char** argv)
 	if (argc == 1) {
 		int imID = getInputMethod();
         int imMode = getInputMode();
-		printf("%d %d\n", imID,imMode);
+		printf("%d-%d\n", imID,imMode);
 	} else if( argc == 2 ) {
-		int locale = atoi(argv[1]);
-		switchInputMethod(locale);
+		char *dash_p = strchr(argv[1],'-');
+		if(dash_p){
+			// im-select-imm [Method]-[Mode]
+			char locale_str[16];
+			memccpy(locale_str,argv[1],'-',sizeof locale_str);
+			locale_str[dash_p-argv[1]] = '\0';
+
+			int locale = atoi(locale_str);
+
+			LRESULT locale_mode = atoi(dash_p + 1);
+			switchInputMethod(locale);
+			switchInputMode(locale_mode);
+
+
+		} else {
+			// Old: im-select [Method]
+			int locale = atoi(argv[1]);
+			switchInputMethod(locale);
+		}
+
 	} else {
+		// im-select-imm [Method] [Mode]
 		int locale = atoi(argv[1]);
 		LRESULT locale_mode = atoi(argv[2]);
 		switchInputMethod(locale);

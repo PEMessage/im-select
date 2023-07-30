@@ -1,8 +1,8 @@
 # Im-Select-Imm
 
 ## Introduce 
-Orgin im-select could only change IME 
-This version allow you change IME Mode in second parameter
+Orgin im-select could only change IME,
+This version allow you change IME Mode in second parameter,
 The pre-build exe is under the `thisdir/out/`
 [中文介绍](./README_CN.md)
 
@@ -22,7 +22,7 @@ Out: [current IME] [current Mode]
 Or
 /path/to/im-select-imm.exe [target IME]  [target IME Mode]
 ```
-## Alredy Test IME
+## Alredy Tested IME
 
 1. Microsoft Chinese IME(New Windows11)
 2. Microsoft Chinese IME(Old Windows10)

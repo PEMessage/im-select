@@ -12,7 +12,7 @@ The pre-build exe is under the `thisdir/out/`
 
 ```shell
 /path/to/im-select-imm.exe
-Out: [current IME] [current Mode]
+Out: [current IME]-[current Mode]
 ```
 
 ## Switch IME
@@ -21,6 +21,8 @@ Out: [current IME] [current Mode]
 /path/to/im-select-imm.exe [target IME]  
 Or
 /path/to/im-select-imm.exe [target IME]  [target IME Mode]
+Or
+/path/to/im-select-imm.exe [target IME]-[target IME Mode]
 ```
 ## Alredy Tested IME
 

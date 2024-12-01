@@ -14,7 +14,7 @@
 
 ```shell
 /path/to/im-select-imm.exe
-Out: [当前输入法] [输入法的当前模式]
+Out: [当前输入法]-[输入法的当前模式]
 ```
 
 ### 切换输入法
@@ -22,7 +22,11 @@ Out: [当前输入法] [输入法的当前模式]
 ```shell
 /path/to/im-select.exe [目标输入法]  
 Or
-/path/to/im-select.exe [目标输入法]  [目标输入法的目标模式]
+/path/to/im-select.exe [目标输入法] [目标输入法的目标模式]
+Or
+/path/to/im-select.exe [目标输入法]-[目标输入法的目标模式] # 部分插件下只允许一个参数
+Or
+/path/to/im-select.exe -d 50 [目标输入法]-[目标输入法的目标模式] # 在切换输入法和模式之间插入延迟，默认30ms，可能可以改善一部分人无效的情况
 ```
 ## 已测试熟人
 

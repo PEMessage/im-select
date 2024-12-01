@@ -77,7 +77,12 @@ int main(int argc, char** argv)
     while ((c = parg_getopt(&ps, optend, argv, optstring)) != -1) {
         switch (c) {
             case 'h':
-                printf("Usage: im-select-imm [-h] [-d DELAY] [METHOD] [MODE]\n");
+                printf( \
+                        "USAGE:                                              \n" \
+                        "       im-select-imm [-h] [-d DELAY] [METHOD] [MODE]\n" \
+                        "VERSION:                                            \n" \
+                        "       1.0.2                                        \n" \
+                        );
                 return 0;
             case 'd':
                 delay = atoi(ps.optarg); 

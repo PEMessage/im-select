@@ -1,5 +1,6 @@
 add_rules("mode.debug", "mode.release")
 
+set_values("wdk.env.winver", "win10")
 
 target("im-select-imm")
     set_kind("binary")

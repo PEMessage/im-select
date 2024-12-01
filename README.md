@@ -23,6 +23,8 @@ Or
 /path/to/im-select-imm.exe [target IME]  [target IME Mode]
 Or
 /path/to/im-select-imm.exe [target IME]-[target IME Mode]
+Or
+/path/to/im-select-imm.exe -d 50 [target IME]-[target IME Mode] # add some delay, May fix some people don't work
 ```
 ## Alredy Tested IME
 
